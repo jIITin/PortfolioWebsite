@@ -5,46 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jitin's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #0d1117;
-            color: #e6edf3;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        .section-title {
-            @apply text-2xl md:text-3xl font-bold mb-6;
-        }
-        .card {
-            @apply bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg transition-all duration-300 hover:bg-opacity-70;
-        }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s ease-in forwards;
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        .slide-up {
-            transform: translateY(20px);
-            opacity: 0;
-            animation: slideUp 0.8s ease-out forwards;
-        }
-        @keyframes slideUp {
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #6366f1, #a855f7);
-            -webkit-background-clip:  text;
-            -webkit-text-fill-color: transparent;
-        }
-        .scroll-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-sans">
     <!-- Header -->
     <header class="fixed top-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur-sm z-10">
         <nav class="container mx-auto py-4 flex justify-between items-center">
@@ -55,6 +18,7 @@
                 <a href="#projects" class="px-4 py-2 text-gray-300 hover:text-white">Projects</a>
                 <a href="#education" class="px-4 py-2 text-gray-300 hover:text-white">Education</a>
                 <a href="#achievements" class="px-4 py-2 text-gray-300 hover:text-white">Achievements</a>
+                <a href="#skills" class="px-4 py-2 text-gray-300 hover:text-white">Skills</a>
             </div>
         </nav>
     </header>
@@ -63,15 +27,13 @@
     <main class="container mx-auto px-4 pt-20">
         <!-- About Section -->
         <section id="about" class="scroll-section py-16">
-            <div>
-                <h2 class="section-title gradient-text fade-in">About Me</h2>
-                <div class="card slide-up">
-                    <p class="text-lg">Jitin</p>
-                    <p>Rewari, Haryana, India</p>
-                    <p><a href="mailto:jitiniitk@gmail.com" class="text-indigo-400 hover:underline">jitiniitk@gmail.com</a></p>
-                    <p><a href="tel:+917082461440" class="text-indigo-400 hover:underline">+91 7082461440</a></p>
-                    <p>LinkedIn: <a href="https://linkedin.com/in/jIITin" class="text-indigo-400 hover:underline">jIITin</a></p>
-                </div>
+            <h2 class="section-title gradient-text fade-in">About Me</h2>
+            <div class="card slide-up">
+                <p class="text-lg">Jitin</p>
+                <p>Rewari, Haryana, India</p>
+                <p><a href="mailto:jitiniitk@gmail.com" class="text-indigo-400 hover:underline">jitiniitk@gmail.com</a></p>
+                <p><a href="tel:+917082461440" class="text-indigo-400 hover:underline">+91 7082461440</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/jIITin" class="text-indigo-400 hover:underline">jIITin</a></p>
             </div>
         </section>
 
@@ -87,6 +49,7 @@
                     <li>Implemented whitelist/blacklist policies in application control, increasing security compliance by 30%.</li>
                     <li>Developed systems to control application access on Linux, reducing policy enforcement time by 40%.</li>
                     <li>Designed web filtering solutions using netfilterqueue, decreasing internet security complaints by 60%.</li>
+ Resume
                     <li>Built DLP systems for application, web, network share, and USB using fanotify, enhancing data security.</li>
                     <li>Technologies: C++, C, libnetfilter, fanotify, libudev, system calls, Linux.</li>
                 </ul>
@@ -134,54 +97,53 @@
         </section>
 
         <!-- Achievements Section -->
-        <section id="achievements" class="scroll-section py-16">
-            <h2 class="section-title gradient-text fade-in">Achievements & Activities</h2>
-            <div class="card slide-up">
-                <ul class="list-disc pl-5 space-y-2">
-                    <li>Secured All India Category Rank 1109 in JEE Advanced 2019 among 2.3 lakh candidates.</li>
-                    <li>Selected for KVPY 2019 in SX stream among 1 lakh candidates.</li>
-                    <li>Secured 98.2 percentile in JEE Mains 2019 among 1.2 million students.</li>
-                    <li>Awarded Panasonic Ratti Chhatr Scholarship (top 30 from 23 IITs).</li>
-                    <li>Received Dakshana Fellowship for academic excellence and leadership (top 1% from 661 JNVs).</li>
-                    <li>Honored with Governor Award in Bharat Scouts and Guides 2017.</li>
-                </ul>
-            </div>
-        </section>
+        <section id="achievements spied by Linear.app's clean, minimalist design with a dark theme, gradient accents, and smooth CSS animations. The navigation bar is fixed for easy access, and each section is animated on scroll for a polished user experience.
 
-        <!-- Skills Section -->
-        <section id="skills" class="scroll-section py-16">
-            <h2 class="section-title gradient-text fade-in">Skills</h2>
-            <div class="card slide-up">
-                <p><strong>Programming Languages:</strong> C, C++, HTML, SQL</p>
-                <p><strong>Tools & Technologies:</strong> Object-Oriented Programming, CSS, Operating Systems</p>
-                <p><strong>Areas of Interest:</strong> Data Structures and Algorithms, Full Stack Web Development</p>
-            </div>
-        </section>
-    </main>
+### File 2: styles.css
+This file contains custom CSS for animations and styling, complementing Tailwind CSS.
 
-    <!-- Footer -->
-    <footer class="container mx-auto py-8 text-center text-gray-400">
-        <p>© 2025 Jitin. All rights reserved.</p>
-    </footer>
+<xaiArtifact artifact_id="c15de528-303b-499c-b016-cec05fe42d79" artifact_version_id="555ace19-e7bf-4c02-9baf-7eda85027de6" title="styles.css" contentType="text/css">
+body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+.section-title {
+    @apply text-2xl md:text-3xl font-bold mb-6;
+}
 
-        // Ensure content visibility on load
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.fade-in, .slide-up').forEach(element => {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
-</body>
-</html>
+.card {
+    @apply bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg transition-all duration-300 hover:bg-opacity-70;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.slide-up {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.scroll-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
