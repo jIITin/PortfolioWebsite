@@ -127,12 +127,21 @@ func main() {
 		},
 	}
 
-	// Serve static files
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	// Serve all files from project root (index.html, styles.css, scripts.js, etc.)
+	// This avoids 404s when files are not under ./static
+	rootFS := http.FileServer(http.Dir("."))
+	// Note: Make sure API routes are registered BEFORE this catch-all handler
 
-	// API endpoint to serve resume data
+	// API endpoint to serve resume data (with CORS)
 	http.HandleFunc("/api/resume", func(w http.ResponseWriter, r *http.Request) {
+		// CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		if r.Method == http.MethodOptions {
+			w.WriteHeader(http.StatusNoContent)
+			return
+		}
 		w.Header().Set("Content-Type", "application/json")
 		if err := json.NewEncoder(w).Encode(resume); err != nil {
 			log.Printf("Error encoding JSON: %v", err)
@@ -142,15 +151,13 @@ func main() {
 		log.Println("Served resume data via API")
 	})
 
-	// Serve index.html for the root path
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("Serving request for %s", r.URL.Path)
-		http.ServeFile(w, r, "./static/index.html")
-	})
+	// Catch-all file server for frontend assets (must be registered after API handlers)
+	http.Handle("/", rootFS)
 
 	// Start server
-	log.Println("Server starting on :8080...")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	const addr = ":8080" // use 8080 to avoid conflicts with Live Server (usually 5500)
+	log.Printf("Server starting on %s...", addr)
+	if err := http.ListenAndServe(addr, nil); err != nil {
 		log.Fatalf("Server failed to start: %v", err)
 	}
 }

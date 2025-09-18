@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="#0b0f19"/>
+  <circle cx="200" cy="140" r="70" fill="url(#g)" opacity="0.25"/>
+  <circle cx="200" cy="140" r="56" fill="#0f172a" stroke="#22d3ee" stroke-opacity="0.6"/>
+  <path d="M80 320c0-66 54-96 120-96s120 30 120 96" fill="#0f172a" stroke="#22d3ee" stroke-opacity="0.6"/>
+  <g font-family="Inter, Arial, sans-serif" text-anchor="middle">
+    <text x="200" y="360" font-size="16" fill="#94a3b8">Profile image not available</text>
+  </g>
+</svg>
